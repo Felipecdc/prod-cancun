@@ -2,13 +2,15 @@ import { useEffect, useRef, useState } from "react";
 import Input from "../../components/input";
 import "./home.scss";
 import axios from "axios";
+import CardClient from "../../components/cardClient";
+import { toast } from "react-toastify";
 
-interface ClientProps {
+export interface ClientProps {
   _id: string;
   name: string;
   email: string;
   phoneNumber: string;
-  date: Date[];
+  dates: Date[];
   lastCutie: Date;
 }
 
@@ -35,9 +37,20 @@ const Home = () => {
       }
       setLoading(false);
     };
-
     fetchClients();
   }, []);
+
+  const handleSendMessages = async () => {
+    try {
+      const response = await axios.post(
+        "https://api-cancun-lcaz.vercel.app/api"
+      );
+      console.log(response.data);
+      toast.success("Mensagens enviadas!");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleInputChange = () => {
     const searchText = searchClientRef.current?.value.toLowerCase();
@@ -48,11 +61,20 @@ const Home = () => {
     const filtered = allClients.filter((client) =>
       client.name.toLowerCase().includes(searchText)
     );
+
+    if (filtered.length === 0) {
+      return toast.warn("ppp");
+    }
+
     setFilteredClients(filtered);
   };
 
   const HandleSearchClientByName = () => {
     handleInputChange();
+  };
+
+  const handleNewClient = () => {
+    window.location.href = "/client";
   };
 
   if (loading) {
@@ -69,14 +91,23 @@ const Home = () => {
         <Input
           placeholder="Nome do cliente"
           type="text"
+          icon="search"
           inputRef={searchClientRef}
           onChange={handleInputChange}
           onClick={HandleSearchClientByName}
         />
       </div>
-      <div className="box">
+      <div className="actions">
+        <button className="send" onClick={handleSendMessages}>
+          Enviar
+        </button>
+        <button className="new" onClick={handleNewClient}>
+          Novo
+        </button>
+      </div>
+      <div className="card-client-space">
         {filteredClients.map((client) => (
-          <h1 key={client._id}>{client.name}</h1>
+          <CardClient key={client._id} client={client} />
         ))}
       </div>
     </>
