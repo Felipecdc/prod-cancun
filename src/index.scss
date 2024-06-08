@@ -24,3 +24,8 @@ body,
   background-color: $background-color;
   font-family: $font-family;
 }
+
+a,
+button {
+  cursor: pointer;
+}
