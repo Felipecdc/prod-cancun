@@ -1,7 +1,7 @@
-import { ChangeEvent, RefObject } from "react";
+import { ChangeEvent, KeyboardEvent, RefObject } from "react";
 import "./input.scss";
 
-import { FaSearch } from "react-icons/fa";
+import { FaSearch, FaUnlock } from "react-icons/fa";
 
 interface InputProps {
   placeholder: string;
@@ -9,15 +9,35 @@ interface InputProps {
   inputRef: RefObject<HTMLInputElement>;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
   onClick: () => void;
+  icon: string;
 }
 
-const Input = ({ placeholder, type, inputRef, onClick }: InputProps) => {
+const Input = ({ placeholder, type, inputRef, onClick, icon }: InputProps) => {
+  const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter") {
+      onClick();
+    }
+  };
+
+  let iconComponent;
+  switch (icon) {
+    case "search":
+      iconComponent = <FaSearch />;
+      break;
+    case "send":
+      iconComponent = <FaUnlock />;
+      break;
+  }
+
   return (
     <div className="container-input">
-      <input type={type} placeholder={placeholder} ref={inputRef} />
-      <button onClick={onClick}>
-        <FaSearch />
-      </button>
+      <input
+        type={type}
+        placeholder={placeholder}
+        ref={inputRef}
+        onKeyDown={handleKeyDown}
+      />
+      <button onClick={onClick}>{iconComponent}</button>
     </div>
   );
 };
