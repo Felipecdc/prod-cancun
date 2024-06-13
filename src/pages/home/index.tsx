@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Input from "../../components/input";
 import "./home.scss";
 import axios from "axios";
@@ -22,23 +22,24 @@ const Home = () => {
   const [allClients, setALlClients] = useState<ClientProps[] | []>([]);
   const [filteredClients, setFilteredClients] = useState<ClientProps[]>([]);
 
-  useEffect(() => {
-    const fetchClients = async () => {
-      setLoading(true);
-      try {
-        const response = await axios.get(
-          "https://api-cancun-lcaz.vercel.app/client"
-        );
-        console.log(response.data);
-        setALlClients(response.data);
-        setFilteredClients(response.data);
-      } catch (error) {
-        console.log("Error fetching clients:", error);
-      }
-      setLoading(false);
-    };
-    fetchClients();
+  const fetchClients = useCallback(async () => {
+    setLoading(true);
+    try {
+      const response = await axios.get(
+        "https://api-cancun-lcaz.vercel.app/client"
+      );
+      console.log(response.data);
+      setALlClients(response.data);
+      setFilteredClients(response.data);
+    } catch (error) {
+      console.log("Error fetching clients:", error);
+    }
+    setLoading(false);
   }, []);
+
+  useEffect(() => {
+    fetchClients();
+  }, [fetchClients]);
 
   const handleSendMessages = async () => {
     try {
@@ -63,7 +64,7 @@ const Home = () => {
     );
 
     if (filtered.length === 0) {
-      return toast.warn("ppp");
+      return toast.warn("Cliente não encontrado!");
     }
 
     setFilteredClients(filtered);
