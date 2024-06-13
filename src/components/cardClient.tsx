@@ -4,25 +4,21 @@ import "./carClient.scss";
 import { ClientProps } from "../pages/home";
 import { MdOpenInNew } from "react-icons/md";
 
+import CustomModal from "./modal";
+import { useState } from "react";
+import DateNotified from "../actions/notified";
+
 interface CardClientProps {
   client: ClientProps;
 }
 
 const CardClient = ({ client }: CardClientProps) => {
-  let nextNotified;
-  const dates = client.dates;
-  const lastCutie = new Date(client.lastCutie);
-  if (dates.length >= 3) {
-    let dateDiffs = [];
-    for (let i = 1; i < dates.length; i++) {
-      const diffTime = Math.abs(
-        new Date(dates[i]).getTime() - new Date(dates[i - 1]).getTime()
-      );
-      dateDiffs.push(diffTime);
-    }
-    const minDateDiff = Math.min(...dateDiffs);
-    nextNotified = new Date(lastCutie.getTime() + minDateDiff);
-  }
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const notified = DateNotified({
+    dates: client.dates,
+    lastCutie: client.lastCutie,
+  });
 
   return (
     <div className="card-client">
@@ -32,18 +28,21 @@ const CardClient = ({ client }: CardClientProps) => {
           <span>{client.phoneNumber}</span>
           <span>{client.email}</span>
         </div>
-        <button>
+        <button onClick={() => setModalOpen(true)}>
           <MdOpenInNew size={18} />
         </button>
       </div>
       <div>
         <h3>Próxima notificação</h3>
         <h4>
-          {nextNotified
-            ? format(nextNotified, "dd/MM/yyy")
-            : "Nenhuma data calculada!"}
+          {notified ? format(notified, "dd/MM/yyy") : "Nenhuma data calculada!"}
         </h4>
       </div>
+      <CustomModal
+        client={client}
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+      />
     </div>
   );
 };
