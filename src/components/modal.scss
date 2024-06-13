@@ -1,0 +1,96 @@
+.modal-container {
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #35303b;
+  width: 90%;
+  max-width: 360px;
+  height: 290px;
+  border-radius: 10px;
+  padding: 10px;
+
+  h1 {
+    color: #33bc51;
+  }
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.content-space {
+  padding: 15px 0;
+  gap: 3px;
+
+  strong {
+    font-size: 17px;
+    color: white;
+  }
+  span {
+    font-size: 15px;
+    color: rgb(201, 201, 201);
+  }
+}
+
+.content-date {
+  h3 {
+    font-size: 17px;
+    margin-bottom: 5px;
+  }
+  h4 {
+    font-size: 15px;
+    color: rgb(201, 201, 201);
+    font-weight: 400;
+  }
+}
+
+.input-request {
+  position: absolute;
+  width: 100%;
+  left: 50%;
+  bottom: 15px;
+  transform: translateX(-50%);
+  padding: 0 10px;
+  justify-content: center;
+  align-items: center;
+
+  h3 {
+    padding-bottom: 8px;
+  }
+
+  Input {
+    color: rgb(148, 118, 165);
+  }
+}
+
+.input-error {
+  Input {
+    border-color: rgb(171, 12, 12);
+    animation: shake 0.8s;
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  40%,
+  70%,
+  70%,
+  90% {
+    transform: translateX(-5px);
+  }
+  20%,
+  60%,
+  80% {
+    transform: translateX(5px);
+  }
+}
