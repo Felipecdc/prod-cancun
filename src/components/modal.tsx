@@ -6,6 +6,7 @@ import { format } from "date-fns";
 import Input from "./input";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 interface ModalProps {
   isOpen: boolean;
@@ -44,6 +45,8 @@ const CustomModal = ({ client, isOpen, onClose }: ModalProps) => {
       );
 
       console.log(keyRequest.data);
+      onClose();
+      toast.success("Serviço agendado para hoje!");
     } catch (error) {
       setInputError(true);
       console.log(error);
