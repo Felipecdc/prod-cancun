@@ -1,17 +1,33 @@
-body {
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.corpo {
-  text-align: center;
-}
-
-.container {
+.box {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  padding: 40px 30px 30px 30px;
+  width: 100%;
+  margin: 0 auto;
+
+  h1 {
+    margin-bottom: 20px;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  width: 100%;
+}
+
+.button {
+  width: 100%;
+  max-width: 550px;
+  height: 40px;
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(228, 228, 228);
+  border: 1px solid rgb(122, 122, 122);
+  border-radius: 5px;
 }
