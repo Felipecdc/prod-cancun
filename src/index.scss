@@ -14,7 +14,8 @@ $font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 
 body,
 #root {
-  color-scheme: dark;
+  font-synthesis: none;
+  color-scheme: light dark;
   width: 100%;
   height: 100vh;
   display: flex;
