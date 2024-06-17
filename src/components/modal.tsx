@@ -104,7 +104,7 @@ const CustomModal = ({ client, isOpen, onClose }: ModalProps) => {
           onChange={handleInputChange}
           onClick={handleUpdateClient}
           placeholder="Digite sua chave"
-          type="text"
+          type="number"
         />
       </div>
     </Modal>
