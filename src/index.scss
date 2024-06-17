@@ -19,8 +19,10 @@ body,
 #root {
   width: 100%;
   height: 100vh;
-  margin: 0;
-  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
   background-color: $background-color;
   font-family: $font-family;
 }
