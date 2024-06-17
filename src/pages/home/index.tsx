@@ -48,6 +48,7 @@ const Home = () => {
       );
       console.log(response.data);
       toast.success("Mensagens enviadas!");
+      fetchClients();
     } catch (error) {
       console.log(error);
     }
@@ -98,18 +99,22 @@ const Home = () => {
           onClick={HandleSearchClientByName}
         />
       </div>
-      <div className="actions">
-        <button className="send" onClick={handleSendMessages}>
-          Enviar
-        </button>
-        <button className="new" onClick={handleNewClient}>
-          Novo
-        </button>
+      <div className="box-actions">
+        <div className="actions">
+          <button className="send" onClick={handleSendMessages}>
+            Enviar
+          </button>
+          <button className="new" onClick={handleNewClient}>
+            Novo
+          </button>
+        </div>
       </div>
-      <div className="card-client-space">
-        {filteredClients.map((client) => (
-          <CardClient key={client._id} client={client} />
-        ))}
+      <div className="content-client">
+        <div className="card-client-space">
+          {filteredClients.map((client) => (
+            <CardClient key={client._id} client={client} />
+          ))}
+        </div>
       </div>
     </>
   );
