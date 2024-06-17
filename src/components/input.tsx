@@ -8,14 +8,14 @@ interface InputProps {
   type: string;
   inputRef: RefObject<HTMLInputElement>;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
-  onClick: () => void;
-  icon: string;
+  onClick?: () => void;
+  icon?: string;
 }
 
 const Input = ({ placeholder, type, inputRef, onClick, icon }: InputProps) => {
   const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
-      onClick();
+      onClick?.();
     }
   };
 
@@ -37,7 +37,11 @@ const Input = ({ placeholder, type, inputRef, onClick, icon }: InputProps) => {
         ref={inputRef}
         onKeyDown={handleKeyDown}
       />
-      <button onClick={onClick}>{iconComponent}</button>
+      {icon && (
+        <button onClick={onClick} aria-label={icon}>
+          {iconComponent}
+        </button>
+      )}
     </div>
   );
 };
