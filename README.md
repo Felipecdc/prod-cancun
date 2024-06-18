@@ -13,11 +13,10 @@ Esse repositorio esta armazenando apenas os codigos front end da aplicação, se
 - 🔒 Validação e Segurança: Cada usuário possui uma chave única que é validada ao atualizar informações. O sistema fornece feedback visual imediato e notificações elegantes com React Toastify.
 
 
-
 ## Tela home
 <img src="https://github.com/Felipecdc/prod-cancun/blob/main/assets/home.png" alt="deploy" width="100%" height="auto">
 
-
+##
 
 ## Tela home com modal
 O modal tem o intuito de iformar qual cliente esta sendo selecionado para atualização de serviço agendando para o dia atual ca confirmação.
@@ -25,6 +24,8 @@ O modal tem o intuito de iformar qual cliente esta sendo selecionado para atuali
 - Para confirmação, cada user (owner) tem uma key, essa key devera ser inserido no input, caso o campo esteja vazio ou com a key invalida, exibira uma animação de e alteração de cor, mas caso esteja correto a ação sera confirmada e exibira um toast de confirmação
 
 <img src="https://github.com/Felipecdc/prod-cancun/blob/main/assets/modal.png" alt="deploy" width="100%" height="auto">
+
+##
 
 ## Tela create client
 <img src="https://github.com/Felipecdc/prod-cancun/blob/main/assets/create.png" alt="deploy" width="100%" height="auto">
