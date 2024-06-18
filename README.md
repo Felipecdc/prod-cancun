@@ -30,4 +30,8 @@ export default {
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
 
 
-<img src="https://github.com/Felipecdc/prod-cancun/blob/main/202406181758(1).gif" alt="deploy" width="100%" height="auto">
+<img src="https://github.com/Felipecdc/prod-cancun/blob/main/assets/home.png" alt="deploy" width="100%" height="auto">
+
+<img src="https://github.com/Felipecdc/prod-cancun/blob/main/assets/modal.png" alt="deploy" width="100%" height="auto">
+
+<img src="https://github.com/Felipecdc/prod-cancun/blob/main/assets/create.png" alt="deploy" width="100%" height="auto">
