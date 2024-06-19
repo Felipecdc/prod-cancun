@@ -2,6 +2,17 @@
 
 Este repositório armazena os códigos front-end da aplicação. Para visualizar o back-end, [clique aqui](https://github.com/Felipecdc/api-cancun).
 
+<h2> 🛠 &nbsp;Tech Stack</h2>
+<h3>💻 &nbsp;Front-end:</h3>
+
+![TypeScript](https://img.shields.io/badge/-TypeScript-333333?style=flat&logo=typescript&logoColor=2D79C7)
+![React](https://img.shields.io/badge/-React-333333?style=flat&logo=react)
+
+<h3>⚙️ &nbsp;Back-end e banco de dados:</h3>
+
+![Node.js](https://img.shields.io/badge/-Node.js-333333?style=flat&logo=node.js)
+![MongoDB](https://img.shields.io/badge/-MongoDB-333333?style=flat&logo=mongodb)
+
 ## Deploy vercel
 [Clique aqui](https://prod-cancun.vercel.app/)
 
